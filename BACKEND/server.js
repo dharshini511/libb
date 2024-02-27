@@ -79,7 +79,7 @@ app.get('/getBooks', (req, res) => {
 
     const offset = (page - 1) * pageSize;
 
-    const sql = `SELECT id, title, author, subject, publishDate, availableCopies FROM books LIMIT ?, ?`;
+    const sql = `SELECT id, title, author, subject, date_format(publishDate,'%d-%m-%Y') as publishDate, availableCopies FROM books LIMIT ?, ?`;
     const values = [offset, pageSize];
 
     db.query(sql, values, (err, data) => {
@@ -93,7 +93,7 @@ app.get('/getBooks', (req, res) => {
 app.get('/searchBooks', (req, res) => {
     const { query } = req.query;
     
-    const sql = `SELECT id, title, author, subject, publishDate, availableCopies FROM books WHERE title LIKE ? OR author LIKE ? OR subject LIKE ? OR publishDate LIKE ?`;
+    const sql = `SELECT id, title, author, subject,date_format(publishDate,'%d-%m-%Y') as publishDate, availableCopies FROM books WHERE title LIKE ? OR author LIKE ? OR subject LIKE ? OR publishDate LIKE ?`;
     const searchValue = `%${query}%`;
     const values = [searchValue, searchValue, searchValue, searchValue];
 
