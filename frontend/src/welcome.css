@@ -1,0 +1,23 @@
+/* Add this CSS to your stylesheet */
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .btn-user {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .btn-admin {
+    background-color: #1976d2;
+    color: #fff;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
