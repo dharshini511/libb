@@ -98,7 +98,7 @@ function Home() {
     const [isAdmin, setIsAdmin] = useState(false); // Add isAdmin state
 
     const handleBorrow = (bookId) => {
-        axios.post('http://localhost:8081/borrowBook', { id: bookId })
+        axios.post('https://lib-2-knbm.onrender.com/borrowBook', { id: bookId })
             .then((response) => {
                 if (response.data.success) {
                     alert("successfully borrowed");
@@ -115,7 +115,7 @@ function Home() {
     };
 
     const handleRemove = (bookId) => {
-        axios.post('http://localhost:8081/removeBook', { id: bookId })
+        axios.post('https://lib-2-knbm.onrender.com/removeBook', { id: bookId })
             .then((response) => {
                 if (response.data.success) {
                     console.log('Removal successful! The book has been removed.');
@@ -131,8 +131,8 @@ function Home() {
 
     const fetchBooks = () => {
         const url = searchQuery
-            ? `http://localhost:8081/searchBooks?query=${searchQuery}`
-            : 'http://localhost:8081/getBooks';
+            ? `https://lib-2-knbm.onrender.com/searchBooks?query=${searchQuery}`
+            : 'https://lib-2-knbm.onrender.com/getBooks';
 
         axios.get(url)
             .then(response => {
